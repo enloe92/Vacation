@@ -1,19 +1,16 @@
 'use strict';
 
-// put your own value below!
+
 const apiKey = 'L8soRHvo4iHI4DcnDe3ccBzMmSBQMcCs0pfusB6O'; 
 const searchURL = 'https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=';
 
 function displayResults(responseJson) {
-  // if there are previous results, remove them
+  
   console.log(responseJson);
   $('#results-list').empty();
-  // iterate through the items array
+  
   for (let i = 0; i < responseJson.data.length; i++){
-    // for each video object in the items 
-    //array, add a list item to the results 
-    //list with the video title, description,
-    //and thumbnail
+    
     $('#results-list').append(
       `<li><h3>${responseJson.data[i].fullName}</h3>
       <p>${responseJson.data[i].description}</p>
@@ -27,7 +24,7 @@ function displayResults(responseJson) {
       <p>${responseJson.data[i].addresses[0].postalCode}</p>
       </li>`
     )};
-  //display the results section  
+  
   $('#results').removeClass('hidden');
 };
 
